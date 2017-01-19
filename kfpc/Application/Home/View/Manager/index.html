@@ -1,0 +1,120 @@
+<include file="./Application/Home/View/Public/header.html" />
+	<section class="layout">
+            <include file="./Application/Home/View/Public/left.html" />
+
+            <!-- main content -->
+            <section class="main-content">
+
+                <!-- content wrapper -->
+                <div class="content-wrap">
+
+                    <!-- inner content wrapper -->
+                    <div class="wrapper">
+                        
+					<include file="./Application/Home/View/Public/nav.html" />
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section class="panel">
+                                <div class="panel-heading no-b">
+                                         <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" onClick="ads.addManager('添加账号','GET')">
+                                    	<i class="fa fa-plus" style="font-size:13px;"></i> <span style="font-size:13px;">添加账号</span>
+                                    </button>
+                                    </div>
+                                  
+                                    <div class="panel-body">
+                                        <table class="table table-bordered table-striped no-m">
+                                            <thead>
+                                                <tr>
+                                                   <!-- <th>#</th>-->
+                                                     <th style="text-align:center">状态</th>
+                                                    <th>账号</th>
+                                                    <th>昵称</th>
+                                                    <th style="text-align:center">绑定mccID</th>
+                                                    <th>mcc账户</th>
+                                                    <th style="text-align:center">创建日期</th>
+                                                   
+                                                   	<th width="120" style="text-align:center">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            
+                                            
+                                            
+                                            
+
+
+                                                
+                                                <volist name="list" id="vo">
+                                                	
+                                                    <if condition="$vo.status eq 1">
+                                                    <tr>
+                                                     <td  style="text-align:center">
+                                                     	
+                                                        	<span style="width:10px; height:10px; border-radius:50%; background:#6C6; display:block; margin:5px auto 0 auto;"></span>
+                                                     	
+                                                        	
+                                                      
+                                                     </td>
+                                                    <td>{$vo.account}</td>
+                                                    <td>{$vo.nickname}</td>
+                                                     <td style="text-align:center">{$vo.mcc}</td>
+                                                    <td> {$vo.name} </td>
+                                                    <td  style="text-align:center"><?php echo  date('Y-m-d h:i:s',$vo['create_time'])?></td>
+                                                    <td  style="text-align:center;cursor:pointer;" data-toggle="modal"     >
+                                                        <i class="fa fa-edit"   onClick="ads.editManager({$vo.id},'GET')"     title="信息编辑" style="font-size:14px;"></i>
+                                                        <i class="fa fa-key"    onClick="ads.editPwd({$vo.id},'GET')"        title="重置密码" style="font-size:14px; margin-left:8px;"></i>
+                                                       
+                                                       &nbsp;<span onClick="ads.iptcustomer('get','{$vo.mcc}')">导入客户</span> 
+                                                         
+                                                      
+                                                    </td>
+                                               	</tr>
+                                                
+                                                <else />
+                                                
+                                                 <tr style="color:#ccc;">
+                                                     <td  style="text-align:center">
+                                                     	
+                                                        	
+                                                     	
+                                                        	<span style="width:10px; height:10px; border-radius:50%; background:red; display:block; margin:5px auto 0 auto;"></span>
+                                                      
+                                                     </td>
+                                                    <td>{$vo.account}</td>
+                                                    <td>{$vo.nickname}</td>
+                                                     <td style="text-align:center">{$vo.mcc}</td>
+                                                    <td> {$vo.name} </td>
+                                                    <td  style="text-align:center"><?php echo  date('Y-m-d h:i:s',$vo['create_time'])?></td>
+                                                    <td   style="text-align:center; cursor:pointer;" data-toggle="modal">
+                                                        
+                                                         <i class="fa fa-edit"   onClick="ads.editManager({$vo.id},'GET')"     title="信息编辑" style="font-size:14px;"></i>
+                                                        <i class="fa fa-key"    onClick="ads.editPwd({$vo.id},'GET')"        title="重置密码" style="font-size:14px; margin-left:8px;"></i>
+                                                         &nbsp;<span onClick="ads.iptcustomer('get','{$vo.mcc}')">导入客户</span>
+                                                        
+                                                    </td>
+                                               	</tr>
+                                                 
+                                                 
+                                                  </if>
+                                                </volist>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <!-- /inner content wrapper -->
+
+                </div>
+                <!-- /content wrapper -->
+                <a class="exit-offscreen"></a>
+            </section>
+            <!-- /main content -->
+        </section>
+
+<include file="./Application/Home/View/Public/footer.html" />

@@ -1,0 +1,380 @@
+<include file="./Application/Mobile/View/Index/Public/mcc_header.html" />
+<div data-etcontrol="content"class="ui-sortable"style="min-height: 486px; padding-top: 50px; padding-bottom: 60px; height: auto; background-image: none; background-color: rgb(251, 248, 248);">
+  <div data-etid="fieldset_1450841160370"data-etcontrol="e_fieldset"class=""et_role="fldsetsyle13"style="outline: none;">
+    <fieldset style="border: 0px solid rgb(42, 96, 169); padding: 0px;">
+      <legend style="width: 100%; margin: 0px; padding: 5px 10px; line-height: 20px; text-align: center; border-radius: 5px 5px 0px 0px; border: 0px; color: rgb(255, 255, 255); box-sizing: border-box; font-family: 微软雅黑; background-color: rgb(42, 96, 169);"align="left">账户概览</legend>
+      <blockquote style="width: 100%; border: 1px solid rgb(42, 96, 169); margin: -2px 0px 0px; padding: 10px 2%; border-radius: 0px 0px 5px 5px; line-height: 25px; box-sizing: border-box;">
+        <div data-etcontrol="e_text"style="padding: 0px; font-size: 16px; color: rgb(63, 63, 63); outline: none;"class=""data-etid="text_1450841160378">
+          <table width="100%"border="1"style="border-collapse:collapse;text-align:center; border:1px solid #ddd; font-size:14px">
+            <tbody>
+              <tr>
+                <td>CID</td>
+                <td><?php echo cut($rs['account_id']); ?></td>
+              </tr>
+              <tr>
+                <td width="30%">账户余额</td>
+                <td><span id="budget1">{$list[5][0]}元</span></td>
+              </tr>
+              <tr>
+                <td>可消费天数</td>
+                <td><span id="budget2">{$list[5][1]}天</span></td>
+              </tr>
+              <?php  if($list[0][0] > 0){ ?>
+              <tr>
+                <td><span style="color:red;font-size:14px;">提醒</span></td>
+                <td style="color:#999;">广告预算受限<br>
+                  丢失展示份额:<?php echo $list[0][0]; ?>%<br>
+                  <p style="font-size:12px;text-align:right;color:#333;padding-bottom:5px;line-height:16px;">——及时联系您的专属广告专家处理</p></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+      </blockquote>
+    </fieldset>
+  </div>
+  <div data-etcontrol="e_fieldset"class=""et_role="fldsetsyle13"data-etid="fieldset_1450841779694"style="outline: none;">
+  	
+  
+    <fieldset style="border: 0px solid rgb(42, 96, 169); padding: 0px;">
+      <legend style="width: 100%; margin: 0px; padding: 5px 10px; line-height: 20px; text-align: center; border-radius: 5px 5px 0px 0px; border: 0px; color: rgb(255, 255, 255); box-sizing: border-box; font-size: 1.5rem; font-family: 微软雅黑; background-color: rgb(42, 96, 169);"align="left">近七天花费详情</legend>
+      <blockquote style="width: 100%; border: 1px solid rgb(42, 96, 169); margin: -2px 0px 0px; padding: 10px 2%; border-radius: 0px 0px 5px 5px; line-height: 25px; box-sizing: border-box;">
+        <div data-etcontrol="e_text"style="padding: 0px; font-size: 16px; color: rgb(63, 63, 63); outline: none;"class=""data-etid="text_1450841779696">
+        	<canvas id="cost_canvas" height="110"></canvas>
+        
+          <table width="100%"border="1"style="border-collapse:collapse;text-align:center; border:1px solid #ddd; font-size:14px">
+            <tbody>
+              <tr>
+                <td width="28%"style="background:#d4eefd; color:#656565">日期</td>
+                <td width="20%"style="background:#d4eefd; color:#656565">花费</td>
+                <td style="background:#d4eefd; color:#656565">展示<br>
+                  次数</td>
+                <td style="background:#d4eefd; color:#656565">访客<br>
+                  数量</td>
+                <td style="background:#d4eefd; color:#656565">转化<br>
+                  次数</td>
+              </tr>
+              <volist name="list[1]" id="vo">
+                <tr>
+                  <td>{$vo.day2}</td>
+                  <td>{$vo.cost}</td>
+                  <td>{$vo.impressions}</td>
+                  <!--IMPRESSIONS-->
+                  <td>{$vo.clicks}</td>
+                  <td>{$vo.conversion_value}</td>
+                </tr>
+              </volist>
+              </tbody>
+          </table>
+        </div>
+        <div data-etcontrol="e_link"  style="text-align: right; outline: none;"class=""data-etid="link_1450841928834"><a onclick="loads('{$DOMAIN_PC}/Mobile/Index/mccReport?t=2')"style="color: rgb(102, 102, 102); font-size: 1.4rem;">更多数据&gt;&gt;</a></div>
+      </blockquote>
+    </fieldset>
+  </div>
+  <div data-etcontrol="e_fieldset"class=""et_role="fldsetsyle13"data-etid="fieldset_1450846442331"style="outline: none;">
+    <fieldset style="border: 0px solid rgb(42, 96, 169); padding: 0px;">
+      <legend style="width: 100%; margin: 0px; padding: 5px 10px; line-height: 20px; text-align: center; border-radius: 5px 5px 0px 0px; border: 0px; color: rgb(255, 255, 255); box-sizing: border-box; font-size: 1.5rem; font-family: 微软雅黑; background-color: rgb(42, 96, 169);"align="left">近七天TOP5关键词概览</legend>
+      <blockquote style="width: 100%; border: 1px solid rgb(42, 96, 169); margin: -2px 0px 0px; padding: 10px 2%; border-radius: 0px 0px 5px 5px; line-height: 25px; box-sizing: border-box;">
+        <div data-etcontrol="e_text"style="padding: 0px; font-size: 16px; color: rgb(63, 63, 63); outline: none;"class=""data-etid="text_1450846442332">
+          <table width="100%"border="1"style="border-collapse:collapse;text-align:center; border:1px solid #ddd; font-size:14px">
+            <tbody>
+              <tr>
+                <td style="background:#d4eefd; color:#656565">关键词</td>
+                <td style="background:#d4eefd; color:#656565">总费用</td>
+                <td style="background:#d4eefd; color:#656565">访客<br>
+                  数量</td>
+                <td style="background:#d4eefd; color:#656565">平均<br>
+                  排名</td>
+              </tr>
+              <volist name="list[2]" id="vo">
+                <tr>
+                  <td>{$vo.criteria}</td>
+                  <!--CRITERIA-->
+                  <td>{$vo.cost}</td>
+                  <td>{$vo.clicks}</td>
+                  <td>{$vo.average_position}</td>
+                  <!--CONVERSIONS{$vo.conversions}--> 
+                </tr>
+              </volist>
+            </tbody>
+          </table>
+        </div>
+        <div data-etcontrol="e_link"style="text-align: right; outline: none;"class=""data-etid="link_1450847401635"><a onclick="loads('{$DOMAIN_PC}/Mobile/Index/mccReport?t=1')"style="color: rgb(102, 102, 102); font-size: 1.4rem;">更多数据&gt;&gt;</a></div>
+      </blockquote>
+    </fieldset>
+  </div>
+  <div data-etcontrol="e_fieldset"class=""et_role="fldsetsyle13"data-etid="fieldset_1450847431538"style="outline: none;">
+    <fieldset style="border: 0px solid rgb(42, 96, 169); padding: 0px;">
+      <legend style="width: 100%; margin: 0px; padding: 5px 10px; line-height: 20px; text-align: center; border-radius: 5px 5px 0px 0px; border: 0px; color: rgb(255, 255, 255); box-sizing: border-box; font-size: 1.5rem; font-family: 微软雅黑; background-color: rgb(42, 96, 169);"align="left">近三十天TOP5地区费用及转化</legend>
+      <blockquote style="width: 100%; border: 1px solid rgb(42, 96, 169); margin: -2px 0px 0px; padding: 10px 2%; border-radius: 0px 0px 5px 5px; line-height: 25px; box-sizing: border-box;">
+        <div data-etid="selectTab_1450847505879"data-etcontrol="e_selectTab"clicktabs="0"style="z-index: 99; outline: none;"class=""data-height="205"data-selected="selected">
+          <div et_role="selectTab">
+            <ul id="nav_tab_1450847505879"et_role="selectTabUl"e_bgcolor="rgba(42, 96, 169, 0.619608)">
+              <li id="tabLi_1450847505879_1"tab_bg_color="rgba(42, 96, 169, 0.741176)"style="background-color:rgb(230, 230, 230)!important;background-image:none!important;color:rgba(80,80,80,1) !important;text-shadow:none;">地区花费</li>
+              <li id="tabLi_1450847505879_2"tab_bg_color="rgba(42, 96, 169, 0.741176)"style="text-shadow: none; background-image: none; background-color: rgba(42, 96, 169, 0.619608);">地区转化次数</li> 
+           
+            <div id="tabindex_1450847505879_1"et_role="selectTabDiv"style=" overflow:auto;  padding: 10px 5px 0px;position:relative;">
+            	<table style="border-collapse:collapse; display:none;" border="0" width="100%" id="geo_table1">
+                	<tr>
+                        <td width="50%" align="center" bordercolor="0">
+                             <canvas id="pie1" width="100%" style="display:;"></canvas>
+                        </td>
+                        <td width="50%">
+                            <table style="border-collapse:collapse;" border="0" width="100%" id="geo_cost1">
+                         	</table>
+                        </td>
+                    </tr>
+                </table>
+                 
+              <div data-etcontrol="e_text"style="padding: 0px; font-size: 16px; color: rgb(63, 63, 63);"class=""data-etid="text_1452663335140">
+                <table width="100%"border="1"style="border-collapse:collapse;color:#656565;text-align:center; border:1px solid #ddd; font-size:14px">
+                  <tbody>
+                    <tr>
+                      <td style="background:rgb(240, 240, 240); color:#656565;width:30%">国家</td>
+                      <td style="background:rgb(240, 240, 240); color:#656565;">总费用</td>
+                      <td style="background:rgb(240, 240, 240); color:#656565;">展示<br>
+                        次数</td>
+                      <td style="background:rgb(240, 240, 240); color:#656565;">访客<br>
+                        数量</td>
+                    </tr>
+                    <volist name="list[3]" id="vo">
+                      <tr>
+                        <td>{$vo.geo}</td>
+                        <td>{$vo.cost}</td>
+                        <td>{$vo.impressions}</td>
+                        <td>{$vo.clicks}</td>
+                      </tr>
+                    </volist>
+                   </tbody>
+                </table>
+              </div>
+           <div data-etcontrol="e_link"style="text-align: right; outline: none;padding-bottom: 10px;"class=""data-etid="link_1452663335140"><a onclick="loads('{$DOMAIN_PC}/Mobile/Index/mccReport?t=3')" style="color: rgb(102, 102, 102); font-size: 1.4rem;">更多数据&gt;&gt;</a></div>
+            </div>
+            <div id="tabindex_1450847505879_2"et_role="selectTabDiv"style="overflow:auto; padding: 10px 5px 0px; display: none;">
+            	
+                <table style="border-collapse:collapse; display:none;" border="0" width="100%" id="geo_table2">
+                	<tr>
+                        <td width="50%" align="center" bordercolor="0">
+                             <canvas id="pie2" width="100%" style="display:;"></canvas>
+                        </td>
+                        <td width="50%">
+                            <table style="border-collapse:collapse;" border="0" width="100%" id="geo_cost2">
+                         	</table>
+                        </td>
+                    </tr>
+                </table>
+            
+              <div data-etcontrol="e_text"style="text-align: left; z-index: 99; font-size: 16px; color: rgb(63, 63, 63); padding: 0px; outline: none;"class=""backup-data-etid="text_1451028883138">
+                <table width="100%"border="1"style="border-collapse:collapse;color:#656565;text-align:center; border:1px solid #ddd; font-size:14px">
+                  <tbody>
+                    <tr>
+                      <td style="background:rgb(240, 240, 240); color:#656565;width:30%">国家</td>
+                      <td style="background:rgb(240, 240, 240); color:#656565;">总费用</td>
+                      <td style="background:rgb(240, 240, 240); color:#656565;">访客<br>
+                        数量</td>
+                      <td style="background:rgb(240, 240, 240); color:#656565;">转化<br>
+                        次数</td>
+                    </tr>
+                    <volist name="list[4]" id="vo">
+                      <tr>
+                        <td>{$vo.geo}</td>
+                        <td>{$vo.cost}</td>
+                        <td>{$vo.clicks}</td>
+                        <td>{$vo.conversion_value}</td>
+                      </tr>
+                    </volist>
+                  </tbody>
+                </table>
+              </div>
+              <div data-etcontrol="e_link"style="text-align: right; outline: none;padding-bottom: 10px;"class=""backup-data-etid="link_1451028883138"><a onclick="loads('{$DOMAIN_PC}/Mobile/Index/mccReport?t=3')"style="color: rgb(102, 102, 102); font-size: 1.4rem;">更多数据&gt;&gt;</a></div>
+            </div>
+          </div>
+        </div>
+      </blockquote>
+    </fieldset>
+  </div>
+  <style>
+*{ font-size:1.5rem;}[data-etControl="e_selectTab"] [et_role="selectTabUl"] li { width: 100%; text-align: center; height: 35px; font-weight: bold; line-height: 35px; border-radius: 5px 5px 0 0; text-overflow: ellipsis; white-space: nowrap; color: white; background-color: rgba(42, 96, 169, 0.741176); box-flex: 1.0; -moz-box-flex: 1.0; -ms-box-flex: 1.0; -webkit-box-flex: 1.0; margin: 0 2px; padding: 0 10px; overflow: hidden;}body{ background: #f4f4f4; width: 100%; color: #646464; font-size:1.5rem;}@media (min-width:412px){*{ font-size:1.6rem;} body{ font-size:1.6rem;} }@media (max-width:321px){ *{ font-size:1.45rem;} body{ font-size:1.3rem;} .formlst label{ font-size: 1.4rem; font-family: '微软雅黑';} .formlstul li .header p { font-size:1.45rem!important;} .selcetbox{width:98px!important;font-size:1.3rem!important}.paddingr{ padding-right:16px!important;}ul.formlstul li div.header .arrow.up{ background-size: 90% 90%!important}ul.formlstul li div.header .arrow.down{ background-size: 90% 90%!important} }.content{ width: 100%;}.formlst{ padding: 10px 0px; text-align: center; border-bottom: 1px solid #c4c4c4; position:fixed; top:0; width:100%; margin:0 auto; height:35px; line-height:35px; z-index:2; background:#f4f4f4}.formlst label{ font-size: 1.4rem; font-family: '微软雅黑';}.formlstul{padding:0;margin:0 }.formlstul li{ width: 98%; position: relative; background: #fff; border-radius: 5px; line-height: 24px; padding: 5px 1% 0; margin-bottom: 10px; border: 1px solid #ccc;}.formlstul li h2{ color: #2b2b2b; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; padding-right: 10%;}.formlstul li h3{ color: #646464;}.formlstul li p{ color: #646464;padding:2px 0;}.formlstul li i{ position: absolute; right: 5px; top: 25px; width: 28px; height: 28px; font-style: normal;}ul.formlstul li div.header{ padding: 5px;}ul.formlstul li:last-child div.header{ border-bottom: none;}ul.formlstul li ul li{ background-color: #ececec; padding: 12px; border-bottom: 1px solid #dcdcdc; border-top: 1px solid #fff; color: #646464; text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);}ul.formlstul li ul li:last-child{ border-bottom: none;}ul.formlstul li ul li.selected{ background-color: #f4f4f4;}ul.formlstul div.header{ color: #646464;width:100%; text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);}ul.formlstul li div.header .arrow.up{ background: url(http://test.qdetong.com/system/webdesign/images/arrow_d.png) no-repeat center center; background-size: 100% 100%}ul.formlstul li div.header .arrow.down{ background: url(http://test.qdetong.com/system/webdesign/images/arrow_u.png) no-repeat center center; background-size: 100% 100%}ul.formlstul li .menu{ padding: 5px; border-top: 1px solid #ccc;}label,input{ display:inline-block; margin:5px 0;}ul.formlstul li .menu .notice{ color: #2b2b2b}ul.expmenu li ul li:not(.selected):hover{ background: #e7e7e7; cursor: pointer;}ul.expmenu li ul li:not(.selected):active{ background: #f1f1f1; cursor: pointer;}.xufeibtn{ padding: 8px 22px; border: 1px solid #ccc; color: #807e7e; border-radius:5px; text-decoration: none;}.yue{ color: #807e7e}.f_l, .tixing{ display: inline-block}.tixing{ padding-right: 5px;}input[type="radio"] { margin: 3px 3px 0px 5px; display: none;}label { padding-left: 20px; cursor: pointer; height:17px; line-height:17px; background: url(images/bg.gif) no-repeat left top;}label.checked { background-position: left bottom;}.xufeibox{ height:40px; line-height:40px;}.font1{color:#646464}input{ padding-right:5px;}.selcetbox{border:1px solid #ccc; text-align:left; width:110px; height:32px; border-radius:5px; color:#646464; font-size:1.4rem;}.paddingr{ padding-right:22px;}.letterspacing{letter-spacing: -0.03em}.redfont{ color:#f00;}.formlstul .header, .menu p{ line-height:28px;}
+.formlstul li{list-style-type:none;}
+</style>
+  <div class="content">
+    <ul class="formlstul">
+      {$li}
+    </ul>
+  </div>
+  <div data-etcontrol="e_copyright"data-etid="copyright_1450841120329"class=""style="outline: none;" onClick="">
+    <div et_role="copyrightContent"style="color: rgb(63, 63, 63);"><span style="font-size:14px">版权所有&nbsp;© 2002-2016 olsa</span></div>
+  </div>
+  <div data-etid="goTop_1450865493141"data-etcontrol="e_goTop"class=""et_position="fixed"e_link_type="一键QQ"style="padding-bottom: 0px; margin-bottom: 10px; margin-left: 0px; opacity: 1; outline: none;">
+    <div class="gooptp"><a style="display: block; line-height: 59px; background-color: rgba(42, 96, 169, 0.619608);"et_role="goTop"et_gotopspeed="30"href=""e_link_type="电话"><i class="iconfont20w"style="width: 100%; line-height: 18px; border: 0px; left: 0px; top: 4px; height: 18px;"></i>TEL</a></div>
+    <div class="gooptp">
+    <a style="display: block; line-height: 59px; background-color: rgba(42, 96, 169, 0.619608);"et_role="goTop"et_gotopspeed="30"href=""e_link_type="一键QQ"><i class="iconfont20w"style="width: 100%; line-height: 18px; border: 0px; left: 0px; top: 4px; height: 18px;"></i>QQ</a></div>
+    <div class="gooptp"><a style="display: block; line-height: 59px; background-color: rgba(42, 96, 169, 0.619608);"et_role="goTop"et_gotopspeed="30"href="javascript:void(0);"e_link_type="一键QQ"e_id="0"><i class="iconfont20w"style="width: 100%; line-height: 18px; border: 0px; left: 0px; top: 4px; height: 18px;"></i>TOP</a></div>
+  </div>
+  <div style="clear:both;"></div>
+</div>
+<script type="text/javascript">
+var budget = true;
+
+var color1 = ["rgba(42, 96, 169,0.1)","rgba(42, 96, 169,1)","rgba(42, 96, 169,1)","rgba(42, 96, 169,1)"];
+var color2 = ["rgba(42, 96, 169,0.1)","rgba(42, 96, 169,0.4)","rgba(42, 96, 169,0.4)","rgba(42, 96, 169,0.4)"];
+								
+
+
+
+		
+								
+var lineChart1 = {
+   labels : {$dt},
+	datasets : [
+		{
+			label: "My First dataset",
+			fillColor : color1[0],
+			strokeColor : color1[1],
+			pointColor : color1[2],
+			pointStrokeColor : "#fff",
+			pointHighlightFill : "#fff",
+			pointHighlightStroke : color1[3],
+			data:{$cost}
+		}
+		
+	]
+}	
+
+ctx1 = document.getElementById('cost_canvas').getContext("2d");
+
+
+								//ctx1.clearRect(0,0,1000,1000);
+window.myLine1 = new Chart(ctx1).Line(lineChart1, {
+//success:true,
+responsive: true,
+bezierCurve:false,
+datasetStroke:false
+});
+
+ctx2 = document.getElementById('pie1').getContext("2d");
+ctx3 = document.getElementById('pie2').getContext("2d");
+var cor = ["#4285f5","#db4436","#fbc12c","#0e9d58","#ab46bd"];	
+
+
+/*var data = [
+    {
+        value: 0,
+        color:cor[0],
+        highlight: cor[0],
+        label: cor[0]
+    },
+    {
+        value: 0,
+        color: cor[1],
+        highlight: cor[1],
+        label: cor[1]
+    },
+    {
+        value: 0,
+        color: cor[2],
+        highlight: cor[2],
+        label: cor[2]
+    },
+	
+	 {
+        value: 0,
+        color: cor[3],
+        highlight: cor[3],
+        label: cor[3]
+    },
+	
+	 {
+        value: 0,
+        color: cor[4],
+        highlight: cor[4],
+        label: cor[4]
+    },
+]*/
+
+var geoJson = {$geoJson};
+
+
+if(geoJson[0].length){
+	
+	var data = new Array();
+	var tr = '';
+	for(var i = 0; i < geoJson[0].length;i++){
+		//data[i].value = parseInt(geoJson[i]['cost']);
+		var d = new Object();
+		d['value'] = parseInt(geoJson[0][i]['cost']);
+		d['color'] = cor[i];
+		d['highlight'] = cor[i];
+		d['label'] = geoJson[0][i]['geo'];	
+		data.push(d);
+		
+		tr+='<tr>';
+		tr+=  '<td><div style="width:7px; height:7px; border-radius:50%; background:'+cor[i]+';"></div></td>';
+		tr+= '<td style="font-size:1.2rem">'+geoJson[0][i]['geo']+'</td>';
+		tr+=  '<td style="font-size:1.2rem" align="center">'+geoJson[0][i]['cost']+'</td>';
+		tr+= '</tr>';
+	}
+	
+	console.log(data);
+	
+	$('#geo_table1').show();
+	$('#geo_cost1').html(tr);
+	var myPieChart = new Chart(ctx2).Doughnut(data);
+}
+
+if(geoJson[1].length){
+	
+	var data = new Array();
+	var tr = '';
+	for(var i = 0; i < geoJson[1].length;i++){
+		//data[i].value = parseInt(geoJson[i]['cost']);
+		var d = new Object();
+		d['value'] = parseInt(geoJson[1][i]['conversion_value']);
+		d['color'] = cor[i];
+		d['highlight'] = cor[i];
+		d['label'] = geoJson[1][i]['geo'];	
+		data.push(d);
+		
+		tr+='<tr>';
+		tr+=  '<td><div style="width:7px; height:7px; border-radius:50%; background:'+cor[i]+';"></div></td>';
+		tr+= '<td style="font-size:1.2rem">'+geoJson[1][i]['geo']+'</td>';
+		tr+=  '<td style="font-size:1.2rem" align="center">'+geoJson[1][i]['conversion_value']+'</td>';
+		tr+= '</tr>';
+	}
+	
+	console.log(data);
+	
+	$('#geo_table2').show();
+	$('#geo_cost2').html(tr);
+	var myPieChart = new Chart(ctx3).Doughnut(data);
+}
+
+//$('#pie1').css('margin-left','-70px');
+window.setInterval(function(){
+	
+	
+},100);
+
+/*$.ajax({
+    	type: "POST",
+        url: "/Form/Accounts/getMccBlance",
+        dataType: "json",
+        success: function(data){
+          if(data.suc  > 0){
+					budget = true;
+					$('#budget1').html(data['msg'][0]+'元');		
+					$('#budget2').html(data['msg'][1]+'天');
+					if(data.suc == 1){
+						alert('余额查看请求完成');
+					 $('[et_role="goTop"]').trigger('click');
+					}
+					 
+					// window.scrollTo(0,0);
+			}else{
+				window.location.href='/Form/Logout';	
+			}
+        }
+    });*/
+
+</script>
+<include file="./Application/Mobile/View/Index/Public/mcc_footer.html" />

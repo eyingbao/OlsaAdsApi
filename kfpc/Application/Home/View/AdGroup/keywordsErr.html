@@ -1,0 +1,146 @@
+<include file="./Application/Home/View/Public/header.html" />
+	<section class="layout">
+            <include file="./Application/Home/View/Public/left.html" />
+
+            <!-- main content -->
+            <section class="main-content">
+
+                <!-- content wrapper -->
+                <div class="content-wrap">
+
+                    <!-- inner content wrapper -->
+                    <div class="wrapper">
+                        
+					<include file="./Application/Home/View/Public/nav.html" />
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section class="panel">
+                                    
+                                     <table border="0" width="100%" cellpadding="0"  cellspacing="0" style="border-collapse:collapse;">
+                                    <tr>
+                                    <td width="15%">
+                                    <div class="panel-heading no-b" style="padding:10px 21px; float:left;">
+                                        <h5 style="margin-bottom:5px;">{$gmcc.nickname}</h5>
+                                        <span>{$gmcc.id}</span>
+                                    </div>
+                                    
+                                    </td>
+                                    
+                                    <td>
+                                    <div class="panel-heading no-b" style="padding:10px 21px; float:;">
+                                       <table id="tb" class="table table-bordered table-striped no-m" width="100%"  >
+                                       		<thead>
+                                                <tr>
+                                                	<th style="text-align:center">关键词（低分）总量</th>
+                                                   	<th style="text-align:center">关键词（全部）总量</th>
+                                                    <th style="text-align:center">低分总量 / 全部总量</th>
+                                                </tr>
+                                                
+                                                
+                                      		</thead>
+                                            <tbody align="center" id="tbd1" style="display:none">
+                                             	<tr height="35">
+                                                    <td  id="c1"></td>
+                                                    <td  id="c2"></td>
+                                                    <td  id="c3"></td>
+                                                
+                                                </tr>
+                                            </tbody>
+                                       </table>
+                                    </div>
+                                    
+                                     </td>
+                                    
+                                    
+                                    
+                                    <td width="25%" align="right">
+                                    
+                                    <div class="panel-heading no-b" style="float:; margin-top:15px;">
+                                        <select id="accountSel" onChange="ads.selects('/Home/AdGroup/keywordsErr?mcc='+this.value+'&date='+$('#date').val())">
+                                        	<option value="000-000-0000">选择查看</option>
+                                          <!--  {$accountTree}-->
+											<volist name="accountTrees" id="vo">
+                                            	<if condition="$vo.id eq $gmcc['id']">
+                                        			<option selected value="{$vo.id}">{$vo.name}</option>
+                                                <else />
+                                                	<option  value="{$vo.id}">{$vo.name}</option>
+                                                </if>
+                                            </volist>
+                                        
+                                        </select>
+                                    </div>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <div class="panel-body">
+                                   		<table class="table table-bordered table-striped no-m">
+                                            <thead>
+                                                <tr>
+                                                	<th style="text-align:center">编号</th>
+                                                   	<th>普通账户</th>
+                                                    <th  style="text-align:center">低分占比</th>
+                                                    
+                                                    <th style="text-align:center">ID</th>
+                                                    <th >广告系列</th>
+                                                    <th style="text-align:">广告组</th>
+                                                    <th style="text-align:center">关键词</th>
+                                                    <th style="text-align:center">分数</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbd">
+                                            
+                                           <!-- <tr><td style="text-align:center">#1</td><td>150515淄博乾科磁业-q</td><td style="text-align:center">5 / 21</td><td style="text-align:center">148-699-6687</td><td>大类词</td><td>magnet</td><td>magnet</td><td style="text-align:center">3</td></tr>
+                                            
+                                            <tr><td style="text-align:center">#1</td><td>150515淄博乾科磁业-q</td><td style="text-align:center">5 / 21</td><td style="text-align:center">148-699-6687</td><td>大类词</td><td>magnet</td><td>magnet</td><td style="text-align:center">3</td></tr>
+                                            
+                                            
+                                            <tr><td style="text-align:center">#1</td><td>150515淄博乾科磁业-q</td><td style="text-align:center">5 / 21</td><td style="text-align:center">148-699-6687</td><td>大类词</td><td>magnet</td><td>magnet</td><td style="text-align:center">3</td></tr>
+                                            
+                                            <tr><td style="text-align:center">#1</td><td>150515淄博乾科磁业-q</td><td style="text-align:center">5 / 21</td><td style="text-align:center">148-699-6687</td><td>大类词</td><td>magnet</td><td>magnet</td><td style="text-align:center">3</td></tr>
+                                            
+                                            <tr><td style="text-align:center">#1</td><td>150515淄博乾科磁业-q</td><td style="text-align:center">5 / 21</td><td style="text-align:center">148-699-6687</td><td>大类词</td><td>magnet</td><td>magnet</td><td style="text-align:center">3</td></tr>-->
+                                            
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <!-- /inner content wrapper -->
+
+                </div>
+                <!-- /content wrapper -->
+                <a class="exit-offscreen"></a>
+            </section>
+            <!-- /main content -->
+        </section>
+        
+<script type="text/javascript">
+	ads.children = {$children};
+	ads.keywordsErr(ads.children);
+	
+	$(function(){
+		/*$('tbody:last tr').on('click',function(){
+			$('tbody tr').each(function(index, element) {
+              	if($(this).index() % 2 ==1){
+					$(this).find('td').css('background-color','#fafafc');
+				}else{
+					 $(this).find('td').css('background-color','transparent');
+				}
+            	$(this).css('background-color','transparent');
+				$(this).find('td').css('color','#59595a');
+			});
+			var index = $(this).index();
+			$(this).find('td').css('background-color','transparent');
+			$(this).find('td').css('color','#fff');
+			$(this).css('background-color','#000');
+		})*/
+	})
+</script>
+
+<include file="./Application/Home/View/Public/footer.html" />

@@ -1,0 +1,155 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0; line-height:1.5em; border:0; text-decoration:none;}
+@font-face{ src:url(../images/AdobeHeitiStd-Regular.otf) opentype; font-family:'Adobe 黑体 Std'}
+body
+{
+    background-color: #fefefe; font-family:'微软雅黑'
+}
+.fontfamilysty{font-family:'Adobe 黑体 Std'}
+i{ font-style:normal}
+.card-stats-compare i img{ width:16px;}
+#main
+{ width:1200px; margin:0 auto;}
+
+header{padding:10px 0 0px; width:100%; border-bottom:3px solid #c7d5de}
+footer
+{
+    width:1200px; margin:0 auto; min-height:100px; background:url(../images/footbg.jpg) no-repeat left top; background-size:100% 100%; border:1px solid #004268; border-radius:5px; text-align:center; padding:15px 0; margin-bottom:10px;
+}
+.row
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+.row:after
+{
+    content: "";
+    display: table;
+    clear: both
+}
+.row .col
+{
+    float: left;
+    width:25%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 6px
+}
+.fontred{ color:#F00}
+footer h2{ color:#fff; font-size:1.6em; padding:8px 0;}
+footer h3{ color:#fff;}
+footer img{ width:110px;}
+footer.page-footer
+{
+    padding-top: 0px
+}
+.fl{ float:left}
+.fr{ float:right}
+.clear{ clear:both}
+header h1{ margin: 0.67em 0 0;}
+h1{ font-size:2.1em; color:#014268; font-weight:bold; float:left;}
+.logo{ width:150px;float:right; margin:15px 20px 0px 0;}
+h2{font-size:1.7em; color:#014268; font-weight:normal;}
+.time{ font-size:1.4em; padding-left:35px; color:#4b4b4b; background:url(../images/timeicon.png) no-repeat left center; background-size:28px 28px;}
+section{ padding:10px 0;}
+select
+{
+    background-color: transparent;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+    height: 3rem;
+    border-bottom: 1px solid #9e9e9e
+}
+#sidenav-overlay
+{
+    background-color: transparent
+}
+.container
+{
+    padding: 0 0.5rem;
+    margin: 0 auto;
+    max-width: 100% !important;
+    width: 98%
+}
+#left-sidebar-nav
+{
+    position: fixed;
+    width: 100px;
+    left: 180px;
+    z-index: 999;
+    height: auto
+}
+#left-sidebar-nav span.badge.new
+{
+    line-height: 20px;
+    margin-top: 11px
+}
+#content .header-search-wrapper
+{
+    width: 100%;
+    margin: 0 auto;
+    height: 40px;
+    display: inline-block;
+    position: relative
+}
+#content .container .row
+{
+    margin-bottom: 0
+}
+
+.detailshow{ color:#4b4b4b; font-size:1.1em; list-style:none;}
+.detailshow li{ margin-bottom:5px;}
+.detailshow li i{height:26px; width:26px; border-radius:100%; border:1px solid #999; float:left; margin-right:10px;}
+.detailshow li:first-child i{ background:url(../images/dtlshow1.png) no-repeat left center; background-size:26px 26px;}
+.detailshow li:nth-child(2) i{ background:url(../images/dtlshow2.png) no-repeat left center;background-size:26px 26px;}
+.detailshow li:last-child i{ background:url(../images/dtlshow3.png) no-repeat left center;background-size:26px 26px;}
+
+.tit{ font-size:1.6em; color:#004268; padding-left:35px;}
+.titicon1{background:url(../images/titicon1.jpg) no-repeat left center; background-size:24px 24px;}
+.titicon2{background:url(../images/titicon2.jpg) no-repeat left center; background-size:24px 24px;}
+.titicon3{background:url(../images/titicon3.jpg) no-repeat left center; background-size:24px 24px;}
+.card-content{ text-align:center;}
+.formstyle{ width:94%; margin:12px auto 0;}
+.formstyle li{ width:49%; position:relative; font-size:1.4em; display:inline-block;margin-bottom:20px;}
+.formstyle li span{ position:absolute; right:5%; top:0;}
+.formstyle li a{ color:#686868; padding:0 15px;}
+.formstyle li i{ text-align:center; color:#fff; padding:5px; border-radius:2px; font-style:normal; font-size:.85em; margin-left:3%; }
+.formstyle li i:nth-child(1){ background:#ff4081}
+.formstyle li i:nth-child(2){background:#f57f17}
+.formstyle li i:nth-child(3){background:#558b2f}
+.formstyle li i:nth-child(4){background:#418bca}
+.canvasul{ width:100%;}
+.canvasul li { width:47.8%; border:1px solid #ccc; display:inline-block; margin:10px 1%;}
+.detailbox{ margin-top:10px; border-radius:5px; margin-bottom:15px; background:#fff;border:1px solid #4c90c8}
+.detailbox .head{height:40px; line-height:40px; background:#418bca; color:#fff; display:block; width:100%;}
+.detailbox .head h1{font-size:1.2em; font-weight:normal;
+    color: #fff;
+    line-height:40px;
+    margin: 0px;
+    margin-left: 10px;
+    display: block;
+    float: left;
+    }
+.isw-graph{margin-left: 10px;
+margin-top:2px;
+    padding: 11px 0px;
+    width: 16px;
+    height: 16px;
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+    float: left;background: url('../images/ic_graph.png') center center no-repeat transparent;}
+.card-stats-number{ font-size:2em;}
+.boxcon{ padding:10px;}
+.boxcon img{ width:100%;}
+.boxcon table{ width:100%;  text-align:center; border-collapse:collapse; font-size:14px;}
+.boxcon table td{border:1px solid #bcbcbc; height:40px; line-height:40px;}
+.boxcon table .titbg{ background:#3399db!important; color:#fff; height:40px; line-height:40px;}
+.boxcon table tbody tr{ height:40px; line-height:40px;}
+.boxcon table tbody tr:nth-child(odd){ background:#f3f3f3}
+.boxcon table tbody tr.last{ background:#cccccc}
+.mark{ padding:10px 0; color:#393939; font-size:14px;}

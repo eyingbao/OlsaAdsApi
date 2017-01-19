@@ -1,0 +1,404 @@
+<!-- sidebar menu -->
+            <aside class="sidebar offscreen-left">
+                <!-- main navigation -->
+                <nav class="main-navigation" data-height="auto" data-size="6px" data-distance="0" data-rail-visible="true" data-wheel-step="10">
+                    <p class="nav-title">栏目</p>
+                    <ul class="nav">
+                     	
+                        <volist name="columnList" id="vo">
+                        	<if condition="$vo.controller eq $cc">
+                            
+                          
+                            <li class="open">
+                                <a href="javascript:;"  class="active">
+                                    <i class="toggle-accordion"></i>
+                                     <i class="{$vo.icon}"></i>
+                                    <span>{$vo.name}</span>
+                                </a>
+                                <ul class="sub-menu">
+                                <volist name="vo['children']" id="sub">
+                                    
+                                    <if condition="$sub.controller == 'Home/AdGroup/index'">
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}">
+                                                
+                                                <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>
+                              		
+                                    <elseif    condition="$sub.controller == 'Home/Campaign/index'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[1][value]}">
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>
+                                    <elseif    condition="$sub.controller == 'Home/AdGroup/keywordsErr'"  />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[1][value]}">
+                                                <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>    
+                                        
+                                    <elseif    condition="$sub.controller == 'Home/Mcc/deliveryChannel'"  />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}">
+                                                <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>        
+                                    
+                                    
+                                    <elseif  condition="$sub.controller == 'Home/Campaign/costErr'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[2][value]}&disabled=1">
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>
+                                        
+                                    <elseif    condition="$sub.controller == 'Home/Mcc/index'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}">
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>   
+                                        
+                                        
+                                      <elseif   condition="$sub.controller == 'Home/Mcc/monthCost'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[4][value]}">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>      
+                                        
+                                        <elseif   condition="$sub.controller == 'Home/AdGroup/adCtrErr'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[4][value]}">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>      
+                                   
+                                    <elseif   condition="$sub.controller == 'Home/AdGroup/adCountErr'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[1][value]}">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>
+                                        
+                                    <elseif   condition="$sub.controller == 'Home/Mcc/active'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[4][value]}">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>    
+                                        
+                                        <elseif   condition="$sub.controller == 'Home/Mcc/tools'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>   
+                                        
+                                        <elseif   condition="$sub.controller == 'Home/Campaign/conversionsContrast'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}&disabled=1">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>   
+                                        
+                                        <elseif   condition="$sub.controller == 'Home/Campaign/cpaContrast'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}&disabled=1">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>
+                                              
+                                    <elseif   condition="$sub.controller == 'Home/Mcc/olsa'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[1][value]}&disabled=1">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>
+                                    <else />
+                                        <li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}">
+                                                <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>
+                              		</if>
+                              
+                               </volist>
+                                
+                            	</ul>
+                                
+                            </li>
+                            
+                            <else />
+                            
+                            <li>
+                                <a  href="javascript:;">
+                                    <i class="toggle-accordion"></i>
+                                     <i class="{$vo.icon}"></i>
+                                    <span>{$vo.name}</span>
+                                </a>
+                                <ul class="sub-menu">
+                                <volist name="vo['children']" id="sub">
+                                    
+                                    <if condition="$sub.controller == 'Home/AdGroup/index'">
+                                    
+                                        <li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}">
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>
+                                        
+                                     <elseif  condition="$sub.controller == 'Home/Campaign/index'"  />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[1][value]}">
+                                                <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>   
+                                        
+                                     <elseif    condition="$sub.controller == 'Home/AdGroup/keywordsErr'"  />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[1][value]}">
+                                                <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>   
+                                        
+                                        <elseif    condition="$sub.controller == 'Home/Mcc/deliveryChannel'"  />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}">
+                                                <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>        
+                              		
+                                    
+                                    <elseif  condition="$sub.controller == 'Home/Campaign/costErr'"  />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[2][value]}&disabled=1">
+                                                <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>
+                                        
+                                        <elseif    condition="$sub.controller == 'Home/Mcc/index'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}">
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>    
+                                        
+                                        <elseif    condition="$sub.controller == 'Home/Mcc/monthCost'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[4][value]}">
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>    
+                                        
+                                      <elseif   condition="$sub.controller == 'Home/AdGroup/adCtrErr'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[4][value]}">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>        
+                                        
+                                        <elseif   condition="$sub.controller == 'Home/AdGroup/adCountErr'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[1][value]}">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>    
+                                        
+                                        <elseif   condition="$sub.controller == 'Home/Mcc/active'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[4][value]}">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>   
+                                        
+                                        <elseif   condition="$sub.controller == 'Home/Mcc/tools'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>  
+                                        
+                                        <elseif   condition="$sub.controller == 'Home/Campaign/conversionsContrast'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}&disabled=1">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>  
+                                         
+                                        <elseif   condition="$sub.controller == 'Home/Campaign/cpaContrast'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[3][value]}&disabled=1">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>        
+                                        
+                                        <elseif   condition="$sub.controller == 'Home/Mcc/olsa'"   />
+                                    	<li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}?date={$dateList[1][value]}&disabled=1">
+                                          
+                                               <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>         
+                                    
+                                    <else />
+                                        <li>
+                                            <a  href="{$DOMAIN_PC}/{$sub.controller}">
+                                                <if condition="$sub.controller == $cc1">
+                                                	<span style="color:#63D5FF;">{$sub.name}</span>
+                                           		<else />
+                                               	 	<span>{$sub.name}</span>
+                                           		</if>
+                                            </a>
+                                        </li>
+                              		</if>
+                              
+                              
+                               </volist>
+                                
+                            	</ul>
+                                
+                            </li>
+                            
+                          </if>
+                        </volist>
+                        </ul>
+                    
+                    
+                    
+                   
+                </nav>
+            </aside>
+            <!-- /sidebar menu -->

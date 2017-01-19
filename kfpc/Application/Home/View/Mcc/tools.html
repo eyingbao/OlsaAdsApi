@@ -1,0 +1,122 @@
+<include file="./Application/Home/View/Public/header.html" />
+	<section class="layout">
+            <include file="./Application/Home/View/Public/left.html" />
+
+            <!-- main content -->
+            <section class="main-content">
+
+                <!-- content wrapper -->
+                <div class="content-wrap">
+
+                    <!-- inner content wrapper -->
+                    <div class="wrapper">
+                        
+					
+                        <include file="./Application/Home/View/Public/nav.html" />
+                        
+                        
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                
+                                <section class="panel">
+                                    
+                                   <table border="0" width="100%" cellpadding="0"  cellspacing="0" style="border-collapse:collapse;">
+                                    <tr>
+                                    <td width="15%">
+                                    <div class="panel-heading no-b" style="padding:10px 21px; float:;">
+                                        <h5 style="margin-bottom:5px;">{$gmcc.nickname}</h5>
+                                        <span>{$gmcc.id}</span>
+                                    </div>
+                                    
+                                    </td>
+                                    <td>
+                                    <div class="panel-heading no-b" style="padding:10px 21px; float:;">
+                                       <table id="tb" class="table table-bordered table-striped no-m" width="100%"  >
+                                       		<thead>
+                                                <tr>
+                                                	<th style="text-align:center" id="kerr">账户总量</th>
+                                                   	<th style="text-align:center" id="kaerr">（无）GA总量</th>
+                                                    <th style="text-align:center" id="per">（无）转化总量</th>
+                                                </tr>
+                                   		</thead>
+                                            <tbody align="center" id="tbd1" style="display:">
+                                             	<tr height="35">
+                                                    <td id="c1">0</td>
+                                                    <td id="c2">0</td>
+                                                    <td id="c3">0</td>
+                                                
+                                                </tr>
+                                            </tbody>
+                                       </table>
+                                    </div>
+                                    
+                                     </td>
+                                    
+                                    <td  width="25%" align="right">
+                                    <div class="panel-heading no-b" style="float:; margin-top:15px;">
+                                        <select id="accountSel" onChange="ads.selects('/Home/Mcc/tools?mcc='+this.value+'&date='+$('#date').val())">
+                                        	<option value="000-000-0000">选择查看</option>
+                                          <!--  {$accountTree}-->
+											<volist name="accountTrees" id="vo">
+                                            	<if condition="$vo.id eq $gmcc['id']">
+                                        			<option selected value="{$vo.id}">{$vo.name}</option>
+                                                <else />
+                                                	<option  value="{$vo.id}">{$vo.name}</option>
+                                                </if>
+                                            </volist>
+                                        
+                                        </select>
+                                    </div>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div class="panel-body">
+                                   		<table class="table table-bordered table-striped no-m" id="tools">
+                                            <thead>
+                                                <tr>
+                                                	<th style="text-align:center">编号</th>
+                                                   	<th>普通账户</th>
+                                                    <th style="text-align:center">CID</th>
+                                                    <!--<th style="text-align:center">GA ID</th>-->
+                                                    <th style="text-align:center">GA</th>
+                                                    
+                                                    <!--<th style="text-align:center">转化页面</th>-->
+                                                    <th style="text-align:center">转化</th>
+                                                    <th style="text-align:center">转化次数</th>
+                                                   <th style="text-align:center">CPA（平均）</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <!-- /inner content wrapper -->
+
+                </div>
+                <!-- /content wrapper -->
+                <a class="exit-offscreen"></a>
+            </section>
+            <!-- /main content -->
+        </section>
+        
+<script type="text/javascript">
+	ads.children = {$children};
+	ads.getTools(ads.children);
+
+</script> 
+
+<include file="./Application/Home/View/Public/footer.html" />

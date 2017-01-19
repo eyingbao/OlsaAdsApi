@@ -1,0 +1,100 @@
+<include file="./Application/Home/View/Public/header.html" />
+<section class="layout"> <include file="./Application/Home/View/Public/left.html" /> 
+  
+  <!-- main content -->
+  <section class="main-content"> 
+    
+    <!-- content wrapper -->
+    <div class="content-wrap"> 
+      
+      <!-- inner content wrapper -->
+      <div class="wrapper"> <include file="./Application/Home/View/Public/nav.html" />
+        <div class="row">
+          <div class="col-md-12">
+            <section class="panel">
+              <div class="panel-heading no-b" style="padding:10px 21px; float:left;">
+                <h5 style="margin-bottom:5px;">{$gmcc.nickname}</h5>
+                <span>{$gmcc.id}</span> </div>
+              <div class="panel-heading no-b" style="float:right; margin-top:15px;">
+                <?php
+                                        
+                                       // var_dump($accountTrees);
+                                       // exit;
+                                        ?>
+                <select id="accountSel" onChange="ads.selects('/Home/Mcc/monthCost?mcc='+this.value+'&date='+$('#date').val())">
+                  <option value="000-000-0000">选择查看</option>
+                  <!--  {$accountTree}-->
+                  <volist name="accountTrees" id="vo">
+                    <if condition="$vo.id eq $gmcc['id']">
+                      <option selected value="{$vo.id}">{$vo.name}</option>
+                      <else />
+                      <option  value="{$vo.id}">{$vo.name}</option>
+                    </if>
+                  </volist>
+                </select>
+              </div>
+              <div class="panel-body">
+                <canvas id="canvas_time"  height="50"   style="margin-top:0px;"></canvas>
+                <script type="text/javascript">
+											var date = {$dates} ;
+											ads.dates = new Array();
+											for(var i = 0;i<date.length;i++){
+												//ads.dates.push(date[i].replace(/2015-/,''));
+												ads.dates.push(date[i]);	
+											}
+											//ads.cc1 = '{$cc2}';
+										</script> 
+              </div>
+              <div class="panel-body">
+                <table class="table table-bordered table-striped no-m" style="display:none;">
+                  <thead>
+                    <tr>
+                      <th width="10%" style="text-align:center">编号</th>
+                      <th>普通账户</th>
+                      <th style="text-align:center">ID</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody id="tbd">
+                    <!--<tr onclick="ads.changerTr(this)">
+                      <td style="text-align:center">#1</td>
+                      <td>130524荣成中磊石材</td>
+                      <td style="text-align:center">206-175-1102</td>
+                      
+                    </tr>
+                    
+                     <tr onclick="ads.changerTr(this)">
+                      <td style="text-align:center">#1</td>
+                      <td>130524荣成中磊石材</td>
+                      <td style="text-align:center">206-175-1102</td>
+                      
+                    </tr>
+                    
+                     <tr onclick="ads.changerTr(this)">
+                      <td style="text-align:center">#1</td>
+                      <td>130524荣成中磊石材</td>
+                      <td style="text-align:center">206-175-1102</td>
+                      
+                    </tr>-->
+                   
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <!-- /inner content wrapper --> 
+      
+    </div>
+    <!-- /content wrapper --> 
+    <a class="exit-offscreen"></a> </section>
+  <!-- /main content --> 
+</section>
+<script type="text/javascript">
+	ads.children = {$children};
+	ads.getMonthCost(ads.children);
+	//$('#date').children('option:eq(4)').get(0).selected = true;
+	$('#date').get(0).disabled = true;
+</script> 
+<include file="./Application/Home/View/Public/footer.html" /> 

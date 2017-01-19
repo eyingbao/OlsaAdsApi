@@ -1,0 +1,153 @@
+<include file="./Application/Home/View/Public/header.html" />
+	<section class="layout">
+            <include file="./Application/Home/View/Public/left.html" />
+
+            <!-- main content -->
+            <section class="main-content">
+
+                <!-- content wrapper -->
+                <div class="content-wrap">
+
+                    <!-- inner content wrapper -->
+                    <div class="wrapper">
+                        
+					
+                        <include file="./Application/Home/View/Public/nav.html" />
+                        
+                        
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                
+                                <section class="panel">
+                                    
+                                   <table border="0" width="100%" cellpadding="0"  cellspacing="0" style="border-collapse:collapse;">
+                                    <tr>
+                                    <!--<td width="15%">
+                                    <div class="panel-heading no-b" style="padding:10px 21px; float:;">
+                                        <h5 style="margin-bottom:5px;">{$gmcc.nickname}</h5>
+                                        <span>{$gmcc.id}</span>
+                                    </div>
+                                    
+                                    </td>-->
+                                    <td>
+                                    <div class="panel-heading no-b" style="padding:10px 21px; float:; display:;">
+                                       <table id="tb" class="table table-bordered table-striped no-m" width="100%"  >
+                                       		<thead>
+                                                <tr>
+                                                	<th style="text-align:left" id="kerr">账户等级</th>
+                                                   	<th style="text-align:center" id="kaerr">账户数量</th>
+                                                    <th style="text-align:center" id="per">平均得分</th>
+                                                </tr>
+                                   		</thead>
+                                            <tbody align="center" id="alertedListTop" style="display:"></tbody>
+                                       </table>
+                                    </div>
+                                    
+                                     </td>
+                                    
+                                    <td  width="25%" align="right">
+                                    <div class="panel-heading no-b" style="float:; margin-top:15px;">
+                                        <select id="accountSel" onChange="ads.selects('/Home/Mcc/alertedList?mcc='+this.value+'&date='+$('#date').val())">
+                                        	<option value="000-000-0000">选择查看</option>
+                                          <!--  {$accountTree}-->
+											<volist name="accountTrees" id="vo">
+                                            	<if condition="$vo.id eq $gmcc['id']">
+                                        			<option selected value="{$vo.id}">{$vo.name}</option>
+                                                <else />
+                                                	<option  value="{$vo.id}">{$vo.name}</option>
+                                                </if>
+                                            </volist>
+                                        
+                                        </select>
+                                    </div>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    
+                                    
+ 
+                                    <div class="panel-body">
+                                    <div style="position:fixed; top:50px; height:36px; overflow:hidden; z-index:9999; background-color: #fff;" id="fixs">
+                                    
+                                    </div>
+                                    
+                                    	
+              <div>
+              <style>
+.TabCon tr td{vertical-align: middle !important; text-align:center;}
+</style>
+              <table class="table table-bordered  TabCon">
+                <thead>
+                  <tr>
+                  	<td rowspan="2" style="text-align:left">账户</td>
+                    <td rowspan="2">CID</td>
+                    <!--<td rowspan="2">等级</td>-->
+                    <td colspan="2">账户端</td>
+                    <td colspan="2">广告系列</td>
+                    <td colspan="2">广告组</td>
+                    <td colspan="2">GA网站指标</td>
+                  <!-- <td rowspan="2">联系频次</td>-->
+                    <td rowspan="2">分值</td>
+                  </tr>
+                  <tr>
+                  	<td style="border-left:1px solid #e3e6f3;">消耗异常</td>
+                    <td>剩余天数</td>
+                    <td>点击率</td>
+                    <td>转化次数</td>
+                    <td>广告状态</td>
+                    <td>质量得分</td>
+                    <td>跳出率</td>
+                    <td>加载时间</td>
+                  </tr>
+
+                </thead>
+                
+                <tbody>
+                
+                <!--<tr>
+                  	<td>数据</td>
+                  	<td>数据</td>
+                  	<td>数据</td>
+                  	<td>消耗异常</td>
+                    <td>剩余天数</td>
+                    <td>点击率</td>
+                    <td>转化次数</td>
+                    <td>广告状态</td>
+                    <td>质量得分</td>
+                    <td>跳出率</td>
+                    <td>加载时间</td>
+                    <td>联系频次</td>
+                    <td>分组数据</td>
+                  </tr>-->
+                
+                </tbody>
+              </table>
+            </div>
+                                    </div>
+                                </section>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <!-- /inner content wrapper -->
+
+                </div>
+                <!-- /content wrapper -->
+                <a class="exit-offscreen"></a>
+            </section>
+            <!-- /main content -->
+        </section>
+        
+<script type="text/javascript">
+	
+	$('#date').children('option:eq(3)').get(0).selected = true;
+	$('#date').get(0).disabled = true;
+	//$('#tools_top').css('width',w+'px');
+	ads.children = {$children};
+	ads.getAlertedList(ads.children);
+
+</script> 
+
+<include file="./Application/Home/View/Public/footer.html" />

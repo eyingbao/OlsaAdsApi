@@ -1,0 +1,96 @@
+<include file="./Application/Home/View/Public/header.html" />
+<section class="layout"><include file="./Application/Home/View/Public/left.html" />
+  <style type="text/css">
+.boxs{
+	 display: -webkit-flex; /* Safari */
+  display: flex;
+  
+  justify-content:space-between;
+}
+
+.boxs_item{
+	width:32%;
+	
+}
+
+</style>
+  
+  <!-- main content -->
+  <section class="main-content">
+    
+    <!-- content wrapper -->
+    
+    <div class="content-wrap"> 
+      
+      <!-- inner content wrapper -->
+      <div class="wrapper"> <include file="./Application/Home/View/Public/nav.html" />
+        <div class="row">
+          <div class="col-md-12">
+            <section class="panel">
+              <div class="panel-body">
+              
+              	<!--<div>
+                	
+                    备注：<b>昨日</b> <span>{$d1}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <b>前日</b> <span>{$d2}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <b>上周</b> <span>{$d3}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                </div>
+                <br />-->
+                
+                <table class="table table-bordered table-striped" style="margin-bottom:20px; border:1px solid #000; font-weight:bold;">
+                	<thead>
+                    <!--<tr>
+                    	<th style="text-align: left;" colspan="6">时间进度</th>
+                    </tr>-->
+                    
+                    <tr align="center">
+                    	<td width="13%" style="border-color:#000;">季度时间进度</td>
+                        <td width="13%" id="schedule1" style="border-color:#000;"></td>
+                        <td width="13%" style="border-color:#000;">季度消耗进度</td>
+                        <td width="13%" id="schedule2" style="border-color:#000;"></td>
+                         <td width="13%" style="border-color:#000;">预计完成比率</td>
+                        <td width="13%" style="border-color:#000;">95.00%</td>
+                        
+                    </tr>
+                    
+                    </thead>
+                </table>
+                
+                <table class="table table-bordered table-striped no-m"  style="border:1px #000 solid;font-weight:bold;" id="tools">
+                  <thead>
+                    <tr>
+                      <td style="text-align:left;border-color:#000;">部门</td>
+                      <td style="text-align:center;border-color:#000;">CID</td>
+                      <td style="text-align:center;border-color:#000;">实际完成</td>
+                      <td style="text-align:center;border-color:#000;" id="olsa_d1">{$d1}</td>
+                      <td style="text-align:center;border-color:#000;" id="olsa_d2">{$d2}</td>
+                      <td style="text-align:center;border-color:#000;">环比涨幅</td>
+                      <td style="text-align:center;border-color:#000;" id="olsa_d3">{$d3}</td>
+                      <td style="text-align:center;border-color:#000;">同比涨幅</td>
+                    </tr>
+                  </thead>
+                  <tbody id="olsa">
+                  </tbody>
+                </table>
+                
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <!-- /inner content wrapper --> 
+      
+    </div>
+    <!-- /content wrapper --> 
+    <a class="exit-offscreen"></a> </section>
+  <!-- /main content -->
+</section>
+<script type="text/javascript">
+//	ads.children = {$children};
+	ads.getOlsa();
+
+</script>
+<include file="./Application/Home/View/Public/footer.html" />

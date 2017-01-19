@@ -1,0 +1,53 @@
+<ol class="breadcrumb">
+    <li>
+    	<a href="javascript:;"><i class="ti-home mr5"></i>Adwords管理系统</a>
+    </li>
+    
+    <li>
+    	<i class="{$nav.icon} mr5" style="position:relative;top:-1px; font-size:14px;"></i><span>{$nav.name}</span>
+    </li>
+    
+    <li class="active"  >{$nav.now_name}</li>
+
+     <?php if(isset($_GET['disabled'])){ ?>
+    
+   
+        <select id="date" style="float:right; width:px;" disabled onChange="ads.changeDate(this.value)">
+            <volist name="dateList" id="vo">
+                <if condition="$vo.value eq $date">
+                    
+                   
+                        <option selected value="{$vo.value}"  >{$vo.day}</option>
+                   
+                        
+                   
+                <else />
+                    <option value="{$vo.value}" >{$vo.day}</option>
+                
+                </if>
+            </volist>
+       
+        </select>
+     <?php }else{ ?>
+   
+           <select id="date" style="float:right; width:px;" onChange="ads.changeDate(this.value)">
+            <volist name="dateList" id="vo">
+                <if condition="$vo.value eq $date">
+                    
+                   
+                        <option selected value="{$vo.value}"  >{$vo.day}</option>
+                   
+                        
+                   
+                <else />
+                    <option value="{$vo.value}" >{$vo.day}</option>
+                
+                </if>
+            </volist>
+       
+        </select>
+
+   
+   
+     <?php } ?>
+</ol>

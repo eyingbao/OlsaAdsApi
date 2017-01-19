@@ -1,0 +1,108 @@
+
+<include file="./Application/Home/View/Public/header.html" />
+	<section class="layout">
+            <include file="./Application/Home/View/Public/left.html" />
+
+            <!-- main content -->
+            <section class="main-content">
+
+                <!-- content wrapper -->
+                <div class="content-wrap">
+
+                    <!-- inner content wrapper -->
+                    <div class="wrapper">
+                        
+					<include file="./Application/Home/View/Public/nav.html" />
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section class="panel">
+                                    <div class="panel-heading no-b" style="padding:10px 21px; float:left;">
+                                        <h5 style="margin-bottom:5px;">{$gmcc.nickname}</h5>
+                                        <span>{$gmcc.id}</span>
+                                    </div>
+                                    
+                                    <div class="panel-heading no-b" style="float:right; margin-top:15px;">
+                                        
+                                        <?php
+                                        
+                                       // var_dump($accountTrees);
+                                       // exit;
+                                        ?>
+                                        
+                                        <select id="accountSel" onChange="ads.selects('/Home/Mcc/index?mcc='+this.value+'&date='+$('#date').val())">
+                                        	<option value="000-000-0000">选择查看</option>
+                                          <!--  {$accountTree}-->
+											<volist name="accountTrees" id="vo">
+                                            	<if condition="$vo.id eq $gmcc['id']">
+                                        			<option selected value="{$vo.id}">{$vo.name}</option>
+                                                <else />
+                                                	<option  value="{$vo.id}">{$vo.name}</option>
+                                                </if>
+                                            </volist>
+                                        
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="panel-body">
+                                   		<table class="table table-bordered table-striped no-m" id="budget">
+                                            <thead>
+                                                <tr>
+                                                	<th style="text-align:center">编号</th>
+                                                   	<th>普通账户</th>
+                                                    <th style="text-align:center">ID</th>
+                                                     <th style="text-align:center;">当前余额</th>
+                                                    <!--<th style="text-align:center">状态</th>-->
+                                                    <th style="text-align:center">过去7天（总）消耗</th>
+                                                    <th style="text-align:center">过去7天（日）消耗</th>
+                                                    <th style="text-align:center;-webkit-user-select: none;-moz-user-select: none; -ms-user-select: none; cursor:pointer;" class="blsa" onClick="sorts(this)">天数</th>
+                                                   
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <!-- /inner content wrapper -->
+
+                </div>
+                <!-- /content wrapper -->
+                <a class="exit-offscreen"></a>
+            </section>
+            <!-- /main content -->
+        </section>
+        
+<script type="text/javascript">
+	var down = document.createElement('div');
+	var up = document.createElement('div');
+	var blsSorts=false;
+	var s = 0;
+	ads.children = {$children};
+	ads.getBalance2(ads.children);
+	function sorts(obj){
+	if(blsSorts){
+		$('#budget').children('tbody')[0].innerHTML = '';
+		if(s == 0){
+			$(obj).removeClass('bls2');	
+			$(obj).removeClass('bls1');	
+			$(obj).addClass('bls2');	
+			$('#budget').children('tbody')[0].innerHTML =up.innerHTML;
+			s = 1;
+		}else{
+			$(obj).removeClass('bls2');	
+			$(obj).removeClass('bls1');	
+			$(obj).addClass('bls1');
+			$('#budget').children('tbody')[0].innerHTML =down.innerHTML;
+			s = 0;
+		}
+	}
+}
+</script> 
+
+<include file="./Application/Home/View/Public/footer.html" />

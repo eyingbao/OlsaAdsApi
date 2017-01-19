@@ -1,0 +1,35 @@
+<div data-etcontrol="e_footer"data-etid="footer_1"class=""style="">
+  <ul et_role="footUl">
+    
+    <li id="fid2"style="width:33.3333%;"><a onclick="loads('{$DOMAIN_PC}/Mobile')" et_role="footLink"style="border: 0px; outline: rgb(12, 76, 159) solid 1px; line-height: 21px; background: none rgb(42, 96, 169);">
+      <div et_role="footBox">
+        <div class="iconfont20w"et_role="footIcon"></div>
+      </div>
+      <span et_role="footText">广告管理</span></a></li>
+    <li id="fid3"style="width:33.3333%;"><a onclick="loads('{$DOMAIN_PC}/Mobile/Index/mccReport')"et_role="footLink"style="border: 0px; outline: rgb(12, 76, 159) solid 1px; line-height: 21px; background: none rgb(42, 96, 169);">
+      <div et_role="footBox">
+        <div class="iconfont20w"et_role="footIcon"></div>
+      </div>
+      <span et_role="footText">报告查询</span></a></li>
+    <li id="fid4"style="width:33.333%;"><a href="{$DOMAIN_PC}/Mobile/Logout" et_role="footLink"style="border: 0px; outline: rgb(12, 76, 159) solid 1px; line-height: 21px; background: none rgb(42, 96, 169);"e_link_type="无">
+      <div et_role="footBox">
+        <div class="iconfont20w"et_role="footIcon"></div>
+      </div>
+      <span et_role="footText">退出</span></a></li>
+  </ul>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+function loads(href){
+	if(budget == true){
+		window.location.href = href;	
+	}else{
+		alert('请先等待余额加载完成');
+	}
+}
+</script>
+
+
+<script src="__PUBLIC__/Accounts/js/touchTabIframe.js"></script> 
+</body></html>

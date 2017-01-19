@@ -1,0 +1,90 @@
+
+<include file="./Application/Home/View/Public/header.html" />
+	<section class="layout">
+            <include file="./Application/Home/View/Public/left.html" />
+
+            <!-- main content -->
+            <section class="main-content">
+
+                <!-- content wrapper -->
+                <div class="content-wrap">
+
+                    <!-- inner content wrapper -->
+                    <div class="wrapper">
+                        
+					<include file="./Application/Home/View/Public/nav.html" />
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section class="panel">
+                                    
+                                    <div class="panel-body">
+                                        <table class="table table-bordered table-striped no-m">
+                                            <thead>
+                                                <tr>
+                                                   <!-- <th>#</th>-->
+                                                    <th>mcc账户</th>
+                                                    <th>普通账户</th>
+                                                    
+                                                    <th>广告系列</th>
+                                                    
+                                                    
+                                                    
+                                                    <th style="text-align:center">预算</th>
+                                                  	<th style="text-align:center">花费</th>
+                                                    <th style="text-align:center">花费/预算</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            
+                                            <!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>-->
+                                            
+                                            
+
+
+                                                
+                                                <volist name="list" id="vo">
+                                                	<tr>
+                                                  
+                                                    <td>
+                                                    	<ul>
+                                                        	<li style=" font-weight:; margin-bottom:5px;">
+                                                            	<a href="/?mcc={$vo.customerid}" style="color:#00aeff; font-size:14px;">{$vo.name}</a> 
+                                                            
+                                                            </li>
+                                                         <li style=" font-weight:; margin-bottom:px; font-size:12px;">
+                                                         <span style="color:#666;">[管理员]</span> <span style="color:#999;">{$vo.customerid}</span> 
+                                                         
+                                                         </li>
+                                                            
+                                                    	</ul>
+                                                    </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                  <td></td>
+                                                    <td></td>
+                                               	</tr>
+                                                
+                                                </volist>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <!-- /inner content wrapper -->
+
+                </div>
+                <!-- /content wrapper -->
+                <a class="exit-offscreen"></a>
+            </section>
+            <!-- /main content -->
+        </section>
+
+<include file="./Application/Home/View/Public/footer.html" />

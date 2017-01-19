@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的账号登录</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<script src="__PUBLIC__/js/jq.js"></script>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+html{ font-size:62.5%;}
+body{font-size:13px; font-family:"微软雅黑"; padding: 0 5px;}
+/*#login{ 
+
+height:220px; 
+width:260px;
+border:0px solid #ccc;
+  max-width: 780px;
+  margin: 0 auto;
+  position: absolute;
+  left:50%;
+  margin-left:-130px;
+  margin-top:-170px;
+  top:50%;*/
+/*position:absolute;
+left:0;
+right:0;
+top:0;
+bottom:0;
+margin:auto;*/
+
+
+
+/*}*/
+
+
+
+/*#login{ 
+
+height:220px; 
+width:260px;
+border:0px solid #ccc;
+  max-width: 780px;
+  margin: 0 auto;
+  position: absolute;
+  left:50%;
+  margin-left:-130px;
+  top:15%;
+
+
+}
+*/
+
+/*#login{ 
+
+height:220px; 
+width:260px;
+border:0px solid #ccc;
+  max-width: 780px;
+  margin: 0 auto;
+  position: absolute;
+  left:50%;
+  margin-left:-130px;
+  top:50%;
+  margin-top:-110px;
+
+}
+*/
+
+
+#login{ 
+
+height:220px; 
+width:260px;
+border:0px solid #ccc;
+  max-width: 780px;
+  margin: 0 auto;
+  position: absolute;
+  left:50%;
+  margin-left:-130px;
+  top:45%;
+  margin-top:-110px;
+
+}
+
+
+
+[type = text],[type = password]{
+	/*width:90%;
+	height:40px;
+	border:1px solid #ccc;
+	border-radius:3px;
+	text-indent:3px;*/
+	height:35px;
+	  padding: 5px 2% 5px 15%;
+  width: 83%;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+  font-size: 1.4rem;
+  color: rgb(88, 88, 88);
+  font-family:"微软雅黑";
+}
+[type="text"]
+{ border-radius:10px 10px 0 0; border-bottom:0;}
+[type = password]
+{ border-radius:0 0 10px 10px;}
+li{ list-style-type:none;}
+#login li{ margin-bottom:15px; position:relative;}
+#login li:first-child{ margin-bottom:0;}
+#login > div:first-child{font-size:15px; text-align:center; height:30px; line-height:30px;}
+
+.box{
+	display:-moz-box; /* Firefox */
+	display:-webkit-box; /* Safari and Chrome */
+	display:box;
+}
+
+.box > div:first-child{
+
+width:80px;
+position:relative;
+top:7px;
+
+}
+
+.login{
+
+	height:35px;
+	background:#3aa9f0;
+
+/*	margin:10px 0  0 30px;*/
+	text-align:center;
+	line-height:35px;
+	color:#fff;
+	border-radius:10px;
+	-moz-box-flex:2.0; /* Firefox */
+	-webkit-box-flex:2.0; /* Safari and Chrome */
+	box-flex:2.0;
+	
+	
+}
+.loginlbl{position:absolute; left:10px; top:13px;}
+.loginlbl img{ width:18px; height:18px;}
+.cross {
+    position: absolute;
+    top:4px;
+    right:10px;
+    width: 35px;
+    height: 42px;
+    display: none;
+   /* background: url(__PUBLIC__/images/clear.png) no-repeat center;*/
+    -webkit-background-size:16px;
+    background-size: 16px;
+    z-index: 2;
+}
+</style>
+</head>
+
+<body>
+	<div id="login">
+    	<div style="font-family:'微软雅黑';font-size:15px; height:50px; line-height:50px;">OlsaAdsApi 移动系统</div>
+    	<ul>
+            <li>
+             <!--   <label>用户：</label>-->
+                <label class="loginlbl" ><img src="__PUBLIC__/images/icon_user.png"></label><input class="user" id="user" type="text" placeholder="请输入账号" oninput="showBtn(this);"/><div  class="cross" onClick="clearText(this);"></div>
+            </li>
+            <li>
+           <!--     <label>密码：</label>-->
+                <label class="loginlbl"><img src="__PUBLIC__/images/icon_password.png"></label><input class="pwd" id="pwd" type="password" placeholder="请输入密码" oninput="showBtn(this);"/><div  class="cross" onClick="clearText(this);"></div>
+            </li>
+            <li style=" text-align:right;">
+           <label style="color:#666;" for="checked">记住</label><input id="checked" checked type="checkbox" style="position:relative; margin-left:15px; top:2px;" /></li>
+            <li>
+                <div class="login" id="logins" onClick="login()">登录</div>
+            </li>
+        </ul>
+
+    </div>
+    
+    <script type="text/javascript">
+		var DOMAIN_PC = '{$DOMAIN_PC}';
+		var user,pwd,login,checked,remember,url;
+		window.onload = function(){
+			 user = document.getElementById('user');
+			 pwd = document.getElementById('pwd');
+			 logins = document.getElementById('logins');
+			 checked = document.getElementById('checked');
+			 
+			 url = window.location.href.split('#')[1];
+			 siteid = window.location.href.split('#')[2];
+			 commentId = window.location.href.split('#')[3];
+			 //console.log(url);
+			 
+		}
+		function showBtn(e){if($(e).val()){$(e).siblings('.cross').css("display","block");}else{$(e).siblings('.cross').css("display","none");}}function clearText(e){$(e).siblings('input').val("");$(e).css("display","none");$(e).siblings('input').focus();}
+		function login(){
+			remember = checked.checked?1:0;
+			//alert(remember) 
+			if(pwd.value != '' && user.value != ''){
+				var xmlhttp;
+				xmlhttp=new XMLHttpRequest();
+				xmlhttp.onreadystatechange=function(){
+					if (xmlhttp.readyState==4 && xmlhttp.status==200){
+						logins.disabled = false;
+						logins.innerHTML = '登录';
+						var rs = JSON.parse(xmlhttp.responseText);
+						if(rs.suc){
+							
+							window.location.href = DOMAIN_PC;
+							
+								
+						}else{
+							alert(rs.msg);	
+						}
+					}else{
+						logins.disabled = true;
+						logins.innerHTML = '登录中...';
+					}
+				}
+				
+				xmlhttp.open("POST",DOMAIN_PC+"/Logout/login",true);
+				xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=utf-8");
+				xmlhttp.send("user="+user.value+"&pwd="+encodeURIComponent(pwd.value)+"&remember="+remember);
+				 
+			 }else{
+				alert('请输入用户名或密码');	 
+			}
+				
+			
+		}
+	</script>
+
+</body>
+</html>

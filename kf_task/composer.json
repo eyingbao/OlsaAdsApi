@@ -1,0 +1,6 @@
+{
+    "require": {
+		"googleads/googleads-php-lib":"*",
+		"google/apiclient": "^2.0"
+    }
+}

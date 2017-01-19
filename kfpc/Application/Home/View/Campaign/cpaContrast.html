@@ -1,0 +1,84 @@
+
+<include file="./Application/Home/View/Public/header.html" />
+	<section class="layout">
+            <include file="./Application/Home/View/Public/left.html" />
+
+            <!-- main content -->
+            <section class="main-content">
+
+                <!-- content wrapper -->
+                <div class="content-wrap">
+
+                    <!-- inner content wrapper -->
+                    <div class="wrapper">
+                        
+					<include file="./Application/Home/View/Public/nav.html" />
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section class="panel">
+                                    <div class="panel-heading no-b" style="padding:10px 21px; float:left;">
+                                        <h5 style="margin-bottom:5px;">{$gmcc.nickname}</h5>
+                                        <span>{$gmcc.id}</span>
+                                    </div>
+                                    
+                                    <div class="panel-heading no-b" style="float:right; margin-top:15px;">
+                                        
+                                        <?php
+                                        
+                                       // var_dump($accountTrees);
+                                       // exit;
+                                        ?>
+                                        
+                                        <select id="accountSel" onChange="ads.selects('/Home/Campaign/cpaContrast?mcc='+this.value+'&date='+$('#date').val()+'&disabled=1')">
+                                        	<option value="000-000-0000">选择查看</option>
+                                          <!--  {$accountTree}-->
+											<volist name="accountTrees" id="vo">
+                                            	<if condition="$vo.id eq $gmcc['id']">
+                                        			<option selected value="{$vo.id}">{$vo.name}</option>
+                                                <else />
+                                                	<option  value="{$vo.id}">{$vo.name}</option>
+                                                </if>
+                                            </volist>
+                                        
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="panel-body">
+                                   		<table class="table table-bordered table-striped no-m" id="cpaContrast">
+                                            <thead>
+                                                <tr>
+                                                	<th style="text-align:center">编号</th>
+                                                   	<th>普通账户</th>
+                                                    <th style="text-align:center">CID</th>
+                                                    <th style="text-align:center">上7天（CPA）</th>
+                                              		<th style="text-align:center">上上7天（CPA）</th>
+                                                    <th style="text-align:center" class="blsa bls1" onclick="ads.cpaContrastSorts(this)">对比</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <!-- /inner content wrapper -->
+
+                </div>
+                <!-- /content wrapper -->
+                <a class="exit-offscreen"></a>
+            </section>
+            <!-- /main content -->
+        </section>
+        
+<script type="text/javascript">
+	ads.children = {$children};
+	//ads.getCampaignCostErr(ads.children);
+	ads.cpaContrast(ads.children);
+</script>
+
+<include file="./Application/Home/View/Public/footer.html" />

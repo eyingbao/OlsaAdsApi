@@ -1,0 +1,43 @@
+<include file="./Application/Home/View/Public/header.html" />
+<script src="__PUBLIC__/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/uploadify/uploadify.css">
+	<section class="layout">
+            <include file="./Application/Home/View/Public/left.html" />
+
+            <!-- main content -->
+            <section class="main-content">
+
+                <!-- content wrapper -->
+                <div class="content-wrap">
+
+                    <!-- inner content wrapper -->
+                    <div class="wrapper">
+                        
+					<include file="./Application/Home/View/Public/nav.html" />
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section class="panel">
+                                <div class="panel-heading no-b">
+                                <button type="button" class="btn btn-success btn-sm"  id="update_account" data-toggle="modal" style="position:absolute; cursor:; display:block; z-index:999; left:25px; top:11px;" onClick="ads.updateMcc(this)">
+                                    	<span style="font-size:13px;">开始同步</span>
+                                    </button>
+                                    </div>
+                                  
+                                    <div class="panel-body"></div>
+                                </section>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    <!-- /inner content wrapper -->
+
+                </div>
+                <!-- /content wrapper -->
+                <a class="exit-offscreen"></a>
+            </section>
+            <!-- /main content -->
+        </section>
+
+<include file="./Application/Home/View/Public/footer.html" />

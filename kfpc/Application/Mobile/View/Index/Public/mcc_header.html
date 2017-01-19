@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="__PUBLIC__/js/jq.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Accounts/js/Chart.js"></script>
+<script type="text/javascript">
+Chart.defaults.global = {
+    // Boolean - Whether to animate the chart
+    animation: true,
+
+    // Number - Number of animation steps
+    animationSteps: 60,
+
+    // String - Animation easing effect
+    // Possible effects are:
+    // [easeInOutQuart, linear, easeOutBounce, easeInBack, easeInOutQuad,
+    //  easeOutQuart, easeOutQuad, easeInOutBounce, easeOutSine, easeInOutCubic,
+    //  easeInExpo, easeInOutBack, easeInCirc, easeInOutElastic, easeOutBack,
+    //  easeInQuad, easeInOutExpo, easeInQuart, easeOutQuint, easeInOutCirc,
+    //  easeInSine, easeOutExpo, easeOutCirc, easeOutCubic, easeInQuint,
+    //  easeInElastic, easeInOutSine, easeInOutQuint, easeInBounce,
+    //  easeOutElastic, easeInCubic]
+    animationEasing: "easeOutQuart",
+
+    // Boolean - If we should show the scale at all
+    showScale: true,
+
+    // Boolean - If we want to override with a hard coded scale
+    scaleOverride: false,
+
+    // ** Required if scaleOverride is true **
+    // Number - The number of steps in a hard coded scale
+    scaleSteps: null,
+    // Number - The value jump in the hard coded scale
+    scaleStepWidth: null,
+    // Number - The scale starting value
+    scaleStartValue: null,
+
+    // String - Colour of the scale line
+    scaleLineColor: "rgba(0,0,0,.1)",
+
+    // Number - Pixel width of the scale line
+    scaleLineWidth: 1,
+
+    // Boolean - Whether to show labels on the scale
+    scaleShowLabels: true,
+
+    // Interpolated JS string - can access value
+    scaleLabel: "<%=value%>",
+
+    // Boolean - Whether the scale should stick to integers, not floats even if drawing space is there
+    scaleIntegersOnly: true,
+
+    // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+    scaleBeginAtZero: false,
+
+    // String - Scale label font declaration for the scale label
+    scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+    // Number - Scale label font size in pixels
+    scaleFontSize: 12,
+
+    // String - Scale label font weight style
+    scaleFontStyle: "normal",
+
+    // String - Scale label font colour
+    scaleFontColor: "#666",
+
+    // Boolean - whether or not the chart should be responsive and resize when the browser does.
+    responsive: false,
+
+    // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+    maintainAspectRatio: true,
+
+    // Boolean - Determines whether to draw tooltips on the canvas or not
+    showTooltips: true,
+
+    // Function - Determines whether to execute the customTooltips function instead of drawing the built in tooltips (See [Advanced - External Tooltips](#advanced-usage-custom-tooltips))
+    customTooltips: false,
+
+    // Array - Array of string names to attach tooltip events
+    tooltipEvents: ["mousemove", "click"],
+
+    // String - Tooltip background colour
+    tooltipFillColor: "rgba(255,255,255,0.8)",
+
+    // String - Tooltip label font declaration for the scale label
+    tooltipFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+    // Number - Tooltip label font size in pixels
+    tooltipFontSize: 14,
+
+    // String - Tooltip font weight style
+    tooltipFontStyle: "normal",
+
+    // String - Tooltip label font colour
+    tooltipFontColor: "#000",
+
+    // String - Tooltip title font declaration for the scale label
+    tooltipTitleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+
+    // Number - Tooltip title font size in pixels
+    tooltipTitleFontSize: 14,
+
+    // String - Tooltip title font weight style
+    tooltipTitleFontStyle: "bold",
+
+    // String - Tooltip title font colour
+    tooltipTitleFontColor: "#000",
+
+    // Number - pixel width of padding around tooltip text
+    tooltipYPadding: 6,
+
+    // Number - pixel width of padding around tooltip text
+    tooltipXPadding: 6,
+
+    // Number - Size of the caret on the tooltip
+    tooltipCaretSize: 8,
+
+    // Number - Pixel radius of the tooltip border
+    tooltipCornerRadius: 6,
+
+    // Number - Pixel offset from point x to tooltip edge
+    tooltipXOffset: 10,
+
+    // String - Template string for single tooltips
+    tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
+
+    // String - Template string for multiple tooltips
+    multiTooltipTemplate: "<%= value %>",
+
+    // Function - Will fire on animation progression.
+    onAnimationProgress: function(){},
+
+    // Function - Will fire on animation completion.
+    onAnimationComplete: function(){}
+}
+</script>
+<meta charset="utf-8">
+<meta name="renderer"content="webkit">
+<title>{$publicName}</title>
+<meta name="viewport"content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no">
+<meta content="yes"name="apple-mobile-web-app-capable">
+<meta content="yes"name="apple-touch-fullscreen">
+<meta content="telephone=no"name="format-detection">
+<meta content="black"name="apple-mobile-web-app-status-bar-style">
+<meta property="wb:webmaster"content="c51923015ca19eb1">
+<link rel="apple-touch-icon-precomposed"href="images/TouchIcon.png">
+<link rel="stylesheet"href="__PUBLIC__/Accounts/css/etFrameworkControl.css?v=1450679453">
+
+<link rel="stylesheet"href="http://test.qdetong.com/system/styles/baseLibraries.css?v=1.2">
+
+<meta name="keywords"content="">
+<meta name="description"content="">
+</head>
+<body>
+<div data-etControl="et_Page" style="overflow-x:hidden">
+  <div id="all_element"data-snap-ignore="true"style="">
+    <div data-etcontrol="e_header"data-etid="header_1"style="height: 50px;max-width:780px; width: 100%; position: fixed; z-index: 1; line-height: 50px; background: rgb(42, 96, 169);"class="">
+      <div et_role="headerTitle"style="background:rgb(42, 96, 169);text-overflow:ellipsis;overflow:hidden;white-space:nowrap;height:50px;line-height:50px;position:relative;">
+        <div et_role="menu"style="top:-5px;width:30px;left:5px;height:40px;border-radius:5px;background:none"><a href="javascript:void(0);"class="iconfont20w"et_role="menuIcon"></a></div>
+        <div et_role="logoBox"style="text-align:center;width:90%; color:#fff;"><!--ACCOUNT_DESCRIPTIVE_NAME-->
+          <div et_role="logoText"style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-size: 1.8rem;">{$cname}</div>
+        </div>
+        <div et_role="headIconBox"style="top:-5px;width:30px;right:5px;height:40px;border-radius:5px;background:none"><a href="index.html"class="iconfont20w"et_role="headIcon"></a></div>
+      </div>
+    </div>
