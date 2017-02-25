@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* CSS Document */
+*{ list-style:none; margin:0px; padding:0px; font-size:14px; font-family:"微软雅黑";}
+button:input,button:fouse{ border:0px; outline:0px;}
+
+#header{ width:100%; height:70px; border-bottom:1px solid rgba(21,172,220,0.5);
+    background: -moz-linear-gradient(top, #6eabd4 0%, #4a7caf 100%)!important;
+    background: -ms-linear-gradient(top, #6eabd4 0%, #4a7caf 100%)!important;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(rgba(21,172,220,0.4)))!important;   
+}
+#header>div{ border-bottom:1px solid #15acdc;}
+.agrlogo{ max-width:1000px; width:auto; margin:0 auto; line-height:36px;}
+.agrlogo h1{ font-size:30px; font-weight:500; color:#1582dc; text-shadow:3px 3px 3px rgba(0,0,0,0.2);}
+.agrlogo p{ color:#fca000; font-weight:bold;}
+.agrlogo p span{ color:#555; padding-left:5px; font-weight:normal;}
+
+#agreement{ max-width:1000px; width:auto; min-height:200px; margin:30px auto; }
+.agrleft{ width:160px; float:left; overflow:hidden;border-top-left-radius:5px;border-top-right-radius:5px;}
+.agright{ width:calc(100% - 200px); min-height:400px; margin-left:30px; float:right;}
+
+.agrtitle{ border-bottom:1px solid rgba(255,255,255,0.2); 
+    background: -moz-linear-gradient(top, #6eabd4 0%, #4a7caf 100%)!important;
+    background: -ms-linear-gradient(top, #6eabd4 0%, #4a7caf 100%)!important;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(21,172,220,0.1)), to(rgba(21,172,220,0.3)))!important;   
+    }
+.agtit{ border-bottom:3px solid rgba(21,172,220,1); }
+.ritit{ width:200px; padding-left:5px;
+background:url(../images/icbg.png) no-repeat left center !important;
+}
+
+    
+.agrtitle p{ font-size:14px; font-weight:bold; padding:5px; color:#1582dc;}
+
+.agrlist{ min-height:200px; border:1px solid #15acdc; border-top:2px solid #15acdc; text-align:center; padding:20px 0px; }
+
+.lprogress{ width:15px; height:40px; line-height:40px; display:inline-block; position:relative;  text-align:center; vertical-align:middle;}
+.lprogress p{ border:2px solid #fff; position:absolute; top:11px; left:2px; width:8px; height:8px; border-radius:50%; z-index:2; background-color: #fff;}
+.lprogress:before{ width:6px; height:40px; background-color:#cceaff; content:""; margin-left:-3px; margin-top:-4px; position:absolute; top:50%; left:50%;}
+.lprogress:after{ position:absolute; top:0px; width:12px; height:12px; background-color:#fff; position:relative; border:2px solid #cceaff; content:""; display:inline-block; border-radius:50%; }
+.agrlist ul li:last-child .lprogress:before{ height:0px;}
+/*进度条*/
+.agrlist ul li.selected .lprogress p{ background-color:#fca000;}
+.agrlist ul li.selected span{ color:#fca000; font-weight:bold;}
+.agrlist ul li.on .lprogress p{background-color:#3899ec;}
+.agrlist ul li.on span{ color:#3899ec; font-weight:bold; }
+
+.agrlist ul li span{ padding-left:10px; font-size:16px;}
+
+.agrCon{ min-height:100px; margin:20px 10px; color:#555;}
+.agrfirst{ padding:10px; min-height:400px; max-height:600px; overflow-y:scroll;}
+.agrfirst::-webkit-scrollbar {
+    width: 4px;
+}
+.agrfirst::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius:3px;
+}
+.agrCon p{ text-indent:2em;}
+
+.line{ border-top:1px solid #ddd;}
+
+.formcon{ position:relative; top:30px;}
+.formcon button{ width:100px; height:30px; line-height:30px; text-align:center; position:absolute;   background: rgba(104, 176, 77, 1) url(http://static.parastorage.com/services/skins/2.1229.62/images/wysiwyg/core/themes/base/shiny1button_bg.png) 50% 50% repeat-x;
+    border: solid rgba(28, 138, 67, 1) 0px;
+    border-radius:5px;
+    color:#fff; left:calc(50% - 50px);
+}
+.nextbut{ margin-right:-110px;}
+.upperbut{ margin-left:-110px;}
+.formcon button:hover{background: rgba(58, 183, 11, 1) url(http://static.parastorage.com/services/skins/2.1229.62/images/wysiwyg/core/themes/base/shiny1button_bg.png) 50% 50% repeat-x;}
+
+.agrtwo,.agrthree{border:1px solid rgba(21,172,220,0.5);}
+.agrtwo .table{ width:100%; border:1px solid rgba(21,172,220,0.8); border-spacing: 0;  border-collapse: collapse;}
+.agrtwo .table tr{border: 1px solid rgba(21,172,220,0.1);}
+.agrtwo .table tr td{padding:5px;}
+.agrtwo .table tr:first-child{ background:rgba(21,172,220,0.1);}
+.agrtwo .table tr:first-child td:first-child{ font-weight:normal !important; text-align:center;}
+.agrtwo .table tr td:first-child{ font-weight:bold;}
+
+.fo-group{ white-space:nowrap; padding:10px 50px 10px; border-bottom: 1px solid rgba(21,172,220,0.1);}
+.fo-group>label{ width:200px; text-align:right; padding-right:10px; display:inline-block; font-weight:bold;}
+.colma{ display:inline-block;}
+.colma input{ width:200px; padding:0px 3px; color:#000;}
+.fo-group span,.fo-group p{ color:#999; }
+.fo-group p{ font-size:12px; margin-left:90px;}
